@@ -103,6 +103,94 @@ body {
   margin-left: 40px;
 }
 
+/* Hide checkboxes (they're only for toggling) */
+.toggle-checkbox {
+  display: none;
+}
+
+/* Style the labels as clickable headers */
+.toggle-label {
+  cursor: pointer;
+  color: #0073e6;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+/* Hover effect on labels */
+.toggle-label:hover {
+  background-color: #e0f7ff;
+  color: #0056b3;
+  border: 2px solid #0073e6;
+}
+
+/* Initially hide sub-skills */
+.sub-skills {
+  max-height: 0;
+  overflow: hidden;
+  margin-left: 20px;
+  list-style-type: circle;
+  opacity: 0; /* Start hidden */
+  transform: translateY(-10px); /* Start slightly above */
+  transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* When checkbox is checked, show sub-skills */
+.toggle-checkbox:checked + .toggle-label + .sub-skills {
+  max-height: 500px; /* Large enough to fit content */
+  opacity: 1; /* Fade in */
+  transform: translateY(0); /* Move into place */
+  transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Add a keyframe glow effect when opening */
+@keyframes glow {
+  0% {
+    background-color: #e0f7ff;
+  }
+  50% {
+    background-color: #cceeff;
+  }
+  100% {
+    background-color: #e0f7ff;
+  }
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  animation: glow 1s ease;
+  color: #004080; /* Darker blue for active label */
+  background-color: #d9f2ff; /* Soft blue highlight */
+}
+
+/* Style the sub-skills list items */
+.sub-skills li {
+  padding: 5px 0;
+  color: #333;
+  font-size: 14px;
+  border-bottom: 1px solid #eaeaea;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Add hover effect to sub-skills */
+.sub-skills li:hover {
+  transform: translateX(10px); /* Slide right on hover */
+  color: #0073e6;
+}
+
+/* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7fafc;
+  margin: 0;
+  padding: 20px;
+  color: #1a202c;
+}
+
+
 /* Force Columns in Small Screens */
 @media (max-width: 768px) {
   .container {
@@ -117,26 +205,5 @@ body {
   .right-column {
       flex: 2;
       max-width: calc(100% - 250px); /* Adapt width for smaller screens */
-  }
-}
-
-/* Print Styles */
-@media print {
-  .container {
-      display: flex;
-      flex-wrap: nowrap;
-      max-width: 100%;
-      margin: 0;
-      box-shadow: none;
-  }
-
-  .left-column,
-  .right-column {
-      flex: 1;
-  }
-
-  body {
-      background-color: #ffffff;
-      color: #000000;
   }
 }
