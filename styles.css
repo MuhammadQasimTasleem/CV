@@ -199,12 +199,6 @@ input[type="checkbox"]:checked + .expandable-list {
   height: 100%;
 }
 
-.right-section-heading {
-  padding-left: 3%;
-  margin: 5px;
-  background-color: #78B3CE;
-}
-
 .objective {
   margin: 10px;
   color: black;
