@@ -10,7 +10,7 @@ body {
 .container {
   display: flex;
   flex-wrap: nowrap; /* Prevent columns from stacking */
-  max-width: 900px; /* Slightly wider for print */
+  max-width: 700px; /* Slightly wider for print */
   margin: 20px auto;
   background-color: #ffffff;
   border-radius: 8px;
@@ -78,7 +78,7 @@ body {
   font-family: 'Arial', sans-serif;
   font-weight: bold;
   border-radius: 5px;
-  margin: 10px 0;
+  margin: 5px 0;
   transition: all 0.3s ease-in-out;
   text-align: left;
 }
@@ -195,7 +195,7 @@ input[type="checkbox"]:checked + .expandable-list {
 }
 .right-column {
   padding: 10px;
-  flex: 2; /* Allow it to take more space */
+  flex: 6; /* Allow it to take more space */
   height: 100%;
 }
 
